@@ -13,10 +13,14 @@ MIRROR_PROXY="${MIRROR_PROXY:-}" # e.g. http://proxy:3128
 ARCH_EXPR="${UBUNTU_ARCHES// /,}"
 umask 022
 
-mirror_config_path="/etc/apt/mirror.list"
+mirror_config_path="/tmp/mirror.list"
 
 write_mirror_config() {
   mkdir -p "${MIRROR_BASE_PATH}/var"
+
+  # Ensure the config file can be written
+  touch "${mirror_config_path}" 2>/dev/null || true
+  chmod 644 "${mirror_config_path}" 2>/dev/null || true
 
   {
     echo "set base_path ${MIRROR_BASE_PATH}"

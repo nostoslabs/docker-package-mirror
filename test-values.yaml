@@ -1,0 +1,27 @@
+image:
+  repository: ubuntu-mirror
+  tag: test
+
+persistence:
+  storageClass: "local-path"
+
+podSecurityContext:
+  fsGroup: 101  # nginx group
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 101  # nginx user
+  runAsGroup: 101  # nginx group
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: false
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+ingress:
+  enabled: false

@@ -5,7 +5,7 @@
 # Image configuration
 image:
   repository: ghcr.io/nostoslabs/docker-package-mirror
-  tag: "main"
+  tag: "v0.1.0"
   pullPolicy: IfNotPresent
 
 # Application configuration
@@ -86,15 +86,15 @@ affinity: {}
 
 # Pod security context
 podSecurityContext:
-  fsGroup: 65534
+  fsGroup: 101  # nginx group
 
 # Security context
 securityContext:
   runAsNonRoot: true
-  runAsUser: 65534
-  runAsGroup: 65534
+  runAsUser: 101  # nginx user
+  runAsGroup: 101  # nginx group
   allowPrivilegeEscalation: false
-  readOnlyRootFilesystem: true
+  readOnlyRootFilesystem: false  # nginx needs write access
   capabilities:
     drop:
       - ALL
