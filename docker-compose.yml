@@ -1,6 +1,6 @@
 services:
   ubuntu-mirror:
-    image: ghcr.io/nostoslabs/docker-package-mirror:v0.1.0
+    image: ghcr.io/nostoslabs/ubuntu-package-mirror:latest
     command: ["serve"]
     ports:
       - "6500:8080"

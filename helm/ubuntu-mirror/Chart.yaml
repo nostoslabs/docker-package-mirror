@@ -9,8 +9,8 @@ keywords:
   - mirror
   - packages
   - apt
-home: https://github.com/nostoslabs/docker-package-mirror
+home: https://github.com/nostoslabs/ubuntu-package-mirror
 sources:
-  - https://github.com/nostoslabs/docker-package-mirror
+  - https://github.com/nostoslabs/ubuntu-package-mirror
 maintainers:
   - name: nostoslabs
